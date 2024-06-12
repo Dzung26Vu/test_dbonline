@@ -89,6 +89,18 @@ app.post('/login', async (req, res) => {
     }
 });
 
+// Endpoint để lấy tất cả thông tin người dùng từ bảng 'users'
+app.get('/users', async (req, res) => {
+    try {
+        const users = await User.findAll();
+        res.status(200).json(users);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Error retrieving users data' });
+    }
+});
+
+
 app.listen(port, '0.0.0.0', () => {
     console.log(`Server is running on http://localhost:${port}`);
 });
