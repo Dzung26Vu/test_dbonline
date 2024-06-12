@@ -11,6 +11,7 @@ const SECRET_KEY = 'your_secret_key';
 const DATABASE_URL = "postgresql://dzungvu:3Pm6J_QgrX6tGA-EpNstMQ@dbdemo-7014.6xw.aws-ap-southeast-1.cockroachlabs.cloud:26257/defaultdb?sslmode=verify-full";
 
 const sequelize = new Sequelize(DATABASE_URL, {
+    dialectModule: require('pg'),
     dialect: 'postgres',
     dialectOptions: {
         ssl: {
